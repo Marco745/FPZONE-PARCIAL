@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Amigos:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Amigos FPZONE</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idAmigo" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idAmigo"
+				styleClass="form-control" value="#{amigoController.i.idAmigo}"
+				required="true" />
+
+
+			<h:outputLabel for="description" value="nombre  "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreAmigo"
+				styleClass="form-control" value="#{amigoController.i.nombreAmigo}"
+				maxlength="30" required="true" />
+
+			<h:outputLabel for="description" value="correo "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="correoAmigo"
+				styleClass="form-control" value="#{amigoController.i.correoAmigo}"
+				maxlength="30" required="true" />
+
+
+			<h:outputLabel for="time" value="edad "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="edadAmigo"
+				styleClass="form-control" value="#{amigoController.i.edadAmigo}"
+				maxlength="30" required="true" />
+				
+			<h:outputLabel for="description" value="sexo "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="sexoAmigo"
+				styleClass="form-control" value="#{amigoController.i.sexoAmigo}"
+				maxlength="30" required="true" />
+
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{amigoController.insert()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listInfectiousAgent?faces-redirect=true" />
+
+
+			<p:commandButton value="Cancelar"
+				action="listInfectiousAgent?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
